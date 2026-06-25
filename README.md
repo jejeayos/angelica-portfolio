@@ -31,3 +31,7 @@ npm run dev
 **Backend**
 cd backend
 mvn spring-boot:run
+
+### Live site
+
+This project is deployed here: [Angelica's Portfolio using Vercel](https://angelica-ayos-portfolio.vercel.app/)
