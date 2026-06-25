@@ -1,34 +1,30 @@
 package com.portfolio.backend.service;
 
 import com.portfolio.backend.model.ContactRequestModel;
-import jakarta.mail.internet.MimeMessage;
+import com.resend.Resend;
+import com.resend.services.emails.model.CreateEmailOptions;
 import lombok.RequiredArgsConstructor;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class ContactRequestService {
 
-    private final JavaMailSender mailSender;
+    @Value("${RESEND_API_KEY}")
+    private String resendApiKey;
 
     public void sendContactEmail(ContactRequestModel request) throws Exception {
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+        Resend resend = new Resend(resendApiKey);
 
-        helper.setTo("jejeayos@gmail.com");
-        helper.setCc(request.getEmail());
-        helper.setSubject("Portfolio Contact: " + request.getSubject());
-        helper.setText("From: " + request.getName() + " <" + request.getEmail() + ">\n\n" + request.getMessage());
+         CreateEmailOptions sendEmailRequest = CreateEmailOptions.builder()
+            .from("onboarding@resend.dev")
+            .to("jejeayos@gmail.com")
+            .cc(request.getEmail())
+            .subject("Portfolio Contact: " + request.getSubject())
+            .text("From: " + request.getName() + " <" + request.getEmail() + ">\n\n" + request.getMessage())
+            .build();
 
-        if (request.getAttachment() != null && !request.getAttachment().isEmpty()) {
-            helper.addAttachment(
-                request.getAttachment().getOriginalFilename(),
-                request.getAttachment()
-            );
-        }
+        resend.emails().send(sendEmailRequest);
 
-        mailSender.send(message);
     }
 }
