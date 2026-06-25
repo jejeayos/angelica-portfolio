@@ -2,7 +2,7 @@
 import Heading from "./Heading";
 import Inputs from "./Inputs";
 import FileInput from "./FileInput";
-import { useState, useRef } from "react";
+import { useState, useRef, ChangeEvent } from "react";
 import axios from "axios";
 import { API_URL } from "@/constants";
 import { Mail, Phone } from "lucide-react";
@@ -19,7 +19,7 @@ export default function Contact() {
 
     const [status, setStatus] = useState("idle");
 
-    const handleChange = (evt) => setFormData({...formData, [evt.target.id]: evt.target.value});
+    const handleChange = (evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setFormData({...formData, [evt.target.id]: evt.target.value});
 
     const handleSubmit = async(evt) => {
         evt.preventDefault();

@@ -5,7 +5,7 @@ type InputProps = {
     id: string
     isRequired: boolean
     addedStyle?: string
-    onChange?: (e) => void
+    onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     value?: string
 
 }
