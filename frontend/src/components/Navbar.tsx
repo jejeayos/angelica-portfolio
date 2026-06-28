@@ -24,6 +24,7 @@ export default function Navbar() {
                 <NavLink href="#experience">Experience</NavLink>
                 <NavLink href="#skills">Skills</NavLink>
                 <NavLink href="#contact">Contact</NavLink>
+                <NavLink href="#off-duty">Off Duty</NavLink>
                 <button 
                     onClick={() => setIsDarkMode(!isDarkMode)} 
                     className="border border-primary text-primary rounded-lg p-1.5 hover:bg-primary hover:text-white cursor-pointer transition-colors duration-200"

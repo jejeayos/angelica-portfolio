@@ -6,6 +6,7 @@ import Experiences from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import { PortfolioProvider } from "@/context/PortfolioContext";
+import OffDuty from "@/components/OffDuty";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Experiences />
         <Skills />
         <Contact />
+        <OffDuty />
       </PortfolioProvider>
     </main>
   )
