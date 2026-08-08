@@ -10,7 +10,7 @@ import { FileDown } from "lucide-react";
 export default function Hero() {
   const { heroRef } = usePortfolio()
   return (
-    <section ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6">
+    <section id="home" ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <Heading variant="primary">
             Angelica Ayos
         </Heading>
@@ -23,7 +23,7 @@ export default function Hero() {
         <Paragraph>
             I'm a Full Stack Developer with 5+ years building accessible, performant web applications. I care about clean architecture, mentoring junior developers, and shipping things that actually work, across the entire stack.
         </Paragraph>
-        <div className="flex gap-4 mt-8"> 
+        <div className="flex flex-col sm:flex-row py-5 gap-4 items-center"> 
             <Button 
                 href="https://github.com/jejeayos" 
                 target="_blank" 

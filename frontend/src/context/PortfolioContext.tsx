@@ -30,6 +30,26 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.classList.toggle('dark', isDarkMode);
   }, [isDarkMode])
 
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]")
+    
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.id
+                window.history.replaceState(null, "", id === "home" ? "/" : `#${id}`)
+              }
+            })
+        },
+        { threshold: 0.3 }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+}, [])
+
+
 
   return (
     <PortfolioContext.Provider value={{ heroVisible, setHeroVisible, isDarkMode, setIsDarkMode, heroRef }}>

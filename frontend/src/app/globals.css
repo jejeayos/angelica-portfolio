@@ -59,6 +59,9 @@
   --container-7xl: 80rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--background);

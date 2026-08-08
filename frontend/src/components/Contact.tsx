@@ -45,10 +45,10 @@ export default function Contact() {
     }
 
     return (
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center px-6">
+        <section id="contact" className="flex flex-col min-h-screen items-center justify-center px-6">
             <Heading variant="secondary" addedStyle="mb-3 text-center w-full">Contact</Heading>
-            <div className="flex gap-5 w-full max-w-5xl">
-                <div className="w-72 flex flex-col gap-6 self-start">
+            <div className="flex flex-col md:flex-row gap-5 w-full max-w-5xl">
+                <div className="w-full md:w-72 flex flex-col gap-6 self-start">
                     <div>
                         <p className="flex flex-row gap-1 text-sm font-medium text-text-secondary uppercase tracking-wide">
                             <Mail size={16} className="text-text-secondary" aria-hidden="true"/>Email
