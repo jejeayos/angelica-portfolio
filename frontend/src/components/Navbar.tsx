@@ -54,6 +54,8 @@ export default function Navbar() {
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className="border border-primary text-primary rounded-lg p-2.5 hover:bg-primary hover:text-white cursor-pointer transition-colors duration-200"
                     aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+                    aria-expanded={isMenuOpen}
+                    aria-controls="mobile-menu"
                 >
                     {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
                 </button>
@@ -61,7 +63,7 @@ export default function Navbar() {
             </div>
 
             {isMenuOpen && 
-                <div className="absolute top-full left-0 w-full bg-surface flex flex-col px-8 py-4 gap-4">
+                <div className="md:hidden absolute top-full left-0 w-full bg-surface flex flex-col px-8 py-4 gap-4" id="mobile-menu">
                     {menuLinks(() => setIsMenuOpen(false), "flex flex-col gap-4")}
                 </div>
             }
