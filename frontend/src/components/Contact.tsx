@@ -12,7 +12,6 @@ export default function Contact() {
     const fileRef = useRef<HTMLInputElement>(null);
     const [formData, setFormData] = useState({
        name: "",
-       email: "",
        subject: "",
        message: "" 
     });
@@ -27,7 +26,6 @@ export default function Contact() {
         try {
             const data = new FormData();
             data.append("name", formData.name);
-            data.append("email", formData.email);
             data.append("subject", formData.subject);
             data.append("message", formData.message);
 
@@ -37,7 +35,7 @@ export default function Contact() {
 
             await axios.post(`${API_URL}/api/contact`, data);
             setStatus("success");
-            setFormData({ name: "", email: "", subject: "", message: "" })
+            setFormData({ name: "", subject: "", message: "" })
             if (fileRef.current) fileRef.current.value = ""
         } catch {
             setStatus("error");
@@ -85,7 +83,6 @@ export default function Contact() {
                 <div className="contact-form flex-1">
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                         <Inputs variant="input" label="Name" id="name" type="text" isRequired={true} onChange={handleChange} value={formData.name}/>
-                        <Inputs variant="input" label="Email" id="email" type="email" isRequired={true} onChange={handleChange} value={formData.email}/>
                         <Inputs variant="input" label="Subject" id="subject" type="text" isRequired={true} onChange={handleChange} value={formData.subject}/>
                         <Inputs variant="textarea" label="Message" id="message" isRequired={true} onChange={handleChange} value={formData.message}/>
                         <FileInput ref={fileRef} id="attachment" label="Attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"/>
