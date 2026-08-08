@@ -34,16 +34,18 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
     const sections = document.querySelectorAll("section[id]")
     
     const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const id = entry.target.id
-                window.history.replaceState(null, "", id === "home" ? "/" : `#${id}`)
-              }
-            })
-        },
-        { threshold: 0.3 }
-    )
+    (entries) => {
+        const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+
+        if (visible) {
+            const id = visible.target.id
+            window.history.replaceState(null, "", id === "home" ? "/" : `#${id}`)
+        }
+    },
+    { threshold: 0.3 }
+)
 
     sections.forEach((section) => observer.observe(section))
     return () => observer.disconnect()
