@@ -1,0 +1,19 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8081
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8081:8081"
+    environment:
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - PORT=8081
