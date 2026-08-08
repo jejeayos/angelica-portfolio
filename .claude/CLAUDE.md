@@ -9,9 +9,13 @@
 - Backend: `cd backend && ./mvnw spring-boot:run` → http://localhost:8081
 - Mobile testing: `npm run dev -- --hostname 0.0.0.0` then add IP to `allowedDevOrigins` in `next.config.ts`
 
+## Running with Docker
+- `docker compose up --build` → frontend: http://localhost:8080, backend: http://localhost:8081
+- Root `.env` needs: `RESEND_API_KEY`, `RESEND_TO_EMAIL`, `ALLOWED_ORIGINS`
+
 ## Environment Variables
 - Frontend: `frontend/.env.local` → `NEXT_PUBLIC_API_URL=http://localhost:8081`
-- Backend: `RESEND_API_KEY`, `PORT`
+- Backend: `RESEND_API_KEY`, `PORT`, `ALLOWED_DEV_ORIGIN`, `RESEND_TO_EMAIL`
 
 ## Collaboration Rules
 - DO NOT edit files directly — guide the user, explain the why, let them write the code
