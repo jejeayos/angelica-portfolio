@@ -1,59 +1,79 @@
 "use client"
 import { usePortfolio } from "@/context/PortfolioContext";
-import Button from "@/components/Button";
-import Paragraph from "./Paragraph";
-import Heading from "./Heading";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { FileDown } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+import { ArrowRight } from "lucide-react";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
+const terminalText = `const developer = {
+  name: 'Angelica Ayos',
+  role: 'Full-Stack Developer',
+  focus: ['Architecture', 'UI/UX'],
+  status: function() {
+    return 'Building the future.';
+  }
+};
+
+await developer.initialize();`
 
 export default function Hero() {
   const { heroRef } = usePortfolio()
+  const { displayed, done } = useTypewriter(terminalText, 30, 500)
+
   return (
-    <section id="home" ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-        <Heading variant="primary">
-            Angelica Ayos
-        </Heading>
-        <p className="text-xl text-text-secondary mt-2">
-            Full Stack Developer
-        </p>
-        <p className="text-lg italic font-heading font-semibold text-primary mt-6">
-            Frontend depth. Full stack range. Always leveling up.
-        </p>
-        <Paragraph>
-            I'm a Full Stack Developer with 5+ years building accessible, performant web applications. I care about clean architecture, mentoring junior developers, and shipping things that actually work, across the entire stack.
-        </Paragraph>
-        <div className="flex flex-col sm:flex-row py-5 gap-4 items-center"> 
-            <Button 
-                href="https://github.com/jejeayos" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                variant="primary"
-                icon={<FaGithub size={16} />}
-                >
-                    View My Work
-            </Button>
+    <section id="home" ref={heroRef} className="min-h-screen flex items-center px-8 md:px-16 py-20">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        <div className="flex flex-col gap-6">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span className="text-xs font-body tracking-widest text-text-secondary uppercase">System Online</span>
+          </div>
 
-            <Button 
-                href="https://www.linkedin.com/in/angelica-ayos/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                variant="secondary"
-                icon={<FaLinkedin size={16} />}
-                >
-                    Let's Connect
-            </Button>
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-text-primary leading-tight">
+            Designed in the front.<br />
+            <span className="italic text-primary">Engineered throughout.</span>
+          </h1>
 
-            <Button 
-                href="https://drive.google.com/uc?export=download&id=1jp2Sp7gC4AEas5OuZw7A36w3l3Si7_as" 
-                variant="secondary" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                icon={<FileDown size={16} />}
-                >
-                    Download CV
-            </Button>
+          <p className="font-body text-text-secondary leading-relaxed max-w-md">
+            Full-stack developer with 5+ years building accessible, performant web applications. 
+            Bridging the gap between clean architecture and pixel-perfect interfaces.
+          </p>
+
+          <div className="flex flex-row gap-3 flex-wrap">
+            <a
+              href="#work"
+              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-background text-sm font-medium rounded hover:bg-primary-container transition-colors duration-200"
+            >
+              View Projects <ArrowRight size={16} />
+            </a>
+            <a
+              href="https://github.com/jejeayos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 border border-border text-text-secondary text-sm font-medium rounded hover:border-primary hover:text-primary transition-colors duration-200"
+            >
+              <FaGithub size={16} /> GitHub
+            </a>
+          </div>
         </div>
+
+        <div className="hidden md:block bg-surface border border-border rounded-lg overflow-hidden">
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-border">
+            <span className="w-3 h-3 rounded-full bg-red-500"></span>
+            <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span className="w-3 h-3 rounded-full bg-green-500"></span>
+            <span className="ml-auto text-xs text-text-secondary font-body">~/workspace/portfolio</span>
+          </div>
+
+          <div className="p-6 font-body text-sm leading-relaxed">
+            <pre className="text-text-secondary whitespace-pre-wrap">
+              {displayed}
+              <span className="cursor-blink">▋</span>
+            </pre>
+          </div>
+        </div>
+
+      </div>
     </section>
   )
 }
