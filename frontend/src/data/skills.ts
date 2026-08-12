@@ -5,24 +5,24 @@ export type SkillCategory = {
 
 const skills: SkillCategory[] = [
   {
-    category: "Built With",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Java", "Spring Boot", "Redis", "AWS", "Terraform", "Docker", "GitHub"]
+    category: "Frontend",
+    skills: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "SASS/SCSS", "React", "Redux", "Vue", "Nuxt", "Pinia", "Vite", "Material UI", "MarionetteJS", "BackboneJS", "Handlebars"]
   },
   {
-    category: "Languages",
-    skills: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS/SCSS", "Java"]
+    category: "Backend",
+    skills: ["Node.js", "Express.js", "Nest.js", "Prisma", "Java", "Spring Boot", "REST APIs"]
   },
   {
-    category: "Frameworks & Libraries",
-    skills: ["React", "Redux", "Vue", "Nuxt", "Nest.js", "Next.js", "Spring Boot", "Tailwind CSS", "Prisma", "Vite", "Material UI", "Node.js", "Express.js"],
+    category: "AI & LLM Tools",
+    skills: ["Prompt Engineering", "Agentic Workflows", "Cursor", "Claude Code"]
   },
   {
-    category: "Tools & Platforms",
-    skills: ["Git", "GitHub", "Firebase", "Docker", "AWS", "Terraform", "Redis", "Azure DevOps", "GitLab"],
+    category: "Database & Platforms",
+    skills: ["Firebase", "AWS S3", "Git", "GitHub", "Docker", "Docker Desktop", "DBeaver", "Google Tag Manager", "Google Analytics", "Figma"]
   },
   {
     category: "Practices",
-    skills: ["Responsive Web Design", "WCAG", "Component Architecture", "Code Review", "Agile/Scrum", "Kanban"]
+    skills: ["Responsive Web Design", "WCAG Accessibility", "Cross-browser & Cross-device Optimization", "Full Stack Debugging", "Component Architecture", "Code Review", "Mentorship", "Agile / Scrum"]
   }
 ]
 
