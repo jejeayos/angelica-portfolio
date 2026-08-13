@@ -14,7 +14,7 @@ export default function Work() {
             <span className="italic text-primary">Performant Web Applications.</span>
           </h2>
           <p className="font-body text-text-secondary text-sm leading-relaxed max-w-xl">
-            A showcase of full-stack solutions spanning HealthTech and Enterprise SaaS — from AI-powered platforms to large-scale B2B eCommerce.
+            A showcase of full-stack solutions spanning HealthTech and Enterprise SaaS, from AI-powered platforms to large-scale B2B eCommerce.
           </p>
         </div>
 
