@@ -56,10 +56,10 @@ export default function OffDutyModal() {
               <div className="flex flex-col gap-4">
                 <h3 className="font-heading text-lg font-bold text-text-primary">About</h3>
                 <p className="font-body text-sm text-text-secondary leading-relaxed">
-                  I'm a developer based in the Philippines who stumbled into code completely by accident — needed math subjects for engineering, ended up in Computer Science, and honestly? Best accidental decision I've ever made.
+                  I'm a developer based in the Philippines who stumbled into code completely by accident, needed math subjects for engineering, ended up in Computer Science, and honestly? Best accidental decision I've ever made.
                 </p>
                 <p className="font-body text-sm text-text-secondary leading-relaxed">
-                  I stayed because I love the puzzle of it. Debugging a tricky issue, simplifying something overcomplicated, finding a cleaner solution — that's the good stuff. I also care deeply about making things look as good as they work, which is probably why I ended up in frontend before going full stack.
+                  I stayed because I love the puzzle of it. Debugging a tricky issue, simplifying something overcomplicated, finding a cleaner solution; that's the good stuff. I also care deeply about making things look as good as they work, which is probably why I ended up in frontend before going full stack.
                 </p>
               </div>
 
@@ -67,7 +67,7 @@ export default function OffDutyModal() {
                 <p className="font-body text-sm text-text-secondary leading-relaxed border-l-2 border-primary pl-4">
                   The code gets committed. The laptop closes. Here's what happens next.
                   Most days you'll find me at the gym or running. When the weather cooperates, I'm out hiking. Mt. Ulap is a personal favorite, worth every step.
-                  Medieval/historical series, Marvel, anime. Game of Thrones has my whole heart — except season 8, which we've collectively agreed not to discuss.
+                  Medieval/historical series, Marvel, anime. Game of Thrones has my whole heart, except season 8, which we've collectively agreed not to discuss.
                 </p>
 
                 <div className="flex flex-col gap-3 p-4 bg-surface-high border border-border rounded-xl">
@@ -108,7 +108,7 @@ export default function OffDutyModal() {
                 </div>
 
                 <p className="font-body text-xs text-text-secondary leading-relaxed italic">
-                  If you made it this far, we probably have something in common — whether it's the hiking, the anime, or the very strong feelings about GOT season 8. The contact form is right there.
+                  If you made it this far, we probably have something in common, whether it's the hiking, the anime, or the very strong feelings about GOT season 8. The contact form is right there.
                 </p>
               </div>
             </div>
