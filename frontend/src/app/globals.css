@@ -13,6 +13,10 @@
   --outline: #a48a8f;
   --outline-variant: #564146;
   --border: #564146;
+  --aquamarine: #40e0c8;
+  --navbar-height: 64px;
+  --footer-height: 56px;
+
 }
 
 @theme {
@@ -27,6 +31,7 @@
   --color-text-secondary: var(--text-secondary);
   --color-outline: var(--outline);
   --color-border: var(--border);
+  --color-aquamarine: var(--aquamarine);
 
   --font-heading: var(--font-caslon);
   --font-body: var(--font-jetbrains);
@@ -76,7 +81,7 @@ button {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--aquamarine);
   outline-offset: 2px;
 }
 
