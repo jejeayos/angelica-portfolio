@@ -8,6 +8,7 @@ import Image from "next/image";
 export default function Contact() {
     const [form, setForm] = useState({ name: "", subject: "", message: "" })
     const [file, setFile] = useState<File | null>(null)
+    const [fileError, setFileError] = useState<string | null>(null)
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
     const [carouselImages, setCarouselImages] = useState<string[]>([])
 
@@ -31,6 +32,7 @@ export default function Contact() {
             setStatus("success")
             setForm({ name: "", subject: "", message: "" })
             setFile(null)
+            setFileError(null)
         } catch {
             setStatus("error")
         }
@@ -114,10 +116,23 @@ export default function Contact() {
                                 <input
                                     type="file"
                                     accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                                    onChange={e => setFile(e.target.files?.[0] ?? null)}
+                                    onChange={e => {
+                                        const selected = e.target.files?.[0] ?? null
+                                        if (selected && selected.size > 5 * 1024 * 1024) {
+                                            setFile(null)
+                                            setFileError("File exceeds 5MB limit.")
+                                            e.target.value = ""
+                                            return
+                                        }
+                                        setFile(selected)
+                                        setFileError(null)
+                                    }}
                                     className="text-xs font-body text-text-secondary file:mr-4 file:py-2 file:px-3 file:rounded file:border file:border-border file:bg-background file:text-text-secondary file:text-xs hover:file:border-aquamarine hover:file:text-aquamarine file:transition-colors file:duration-200 file:cursor-pointer"
                                 />
-                                {file && (
+                                {fileError && (
+                                    <span className="text-xs font-body text-red-400">{fileError}</span>
+                                )}
+                                {!fileError && file && (
                                     <span className="text-xs font-body text-text-secondary">{file.name}</span>
                                 )}
                             </div>
@@ -156,7 +171,7 @@ export default function Contact() {
                         <motion.div
                             className="flex h-full"
                             animate={{ x: ["0%", "-50%"] }}
-                            transition={{ duration: carouselImages.length * 3, repeat: Infinity, ease: "linear" }}
+                            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                         >
                             {carouselImages.length > 0 && [...carouselImages, ...carouselImages].map((src, i) => (
                                 <div key={i} className="shrink-0 h-full relative" style={{ width: "50%" }}>
