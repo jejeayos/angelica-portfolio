@@ -5,12 +5,18 @@ type PortfolioContextType = {
   heroVisible: boolean
   setHeroVisible: (value: boolean) => void
   heroRef: React.RefObject<HTMLElement | null>
+  isOffDutyOpen: boolean
+  setIsOffDutyOpen: (value: boolean) => void
+  activeSection: string
 }
+
 
 export const PortfolioContext = createContext<PortfolioContextType | null>(null);
 
 export function PortfolioProvider({ children }: { children: React.ReactNode }) {
   const [heroVisible, setHeroVisible] = useState(true);
+  const [isOffDutyOpen, setIsOffDutyOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -34,8 +40,10 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
 
         if (visible) {
           const id = visible.target.id
+          setActiveSection(id)
           window.history.replaceState(null, "", id === "home" ? "/" : `#${id}`)
         }
+
       },
       { threshold: 0.3 }
   )
@@ -47,7 +55,7 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
 
 
   return (
-    <PortfolioContext.Provider value={{ heroVisible, setHeroVisible, heroRef }}>
+    <PortfolioContext.Provider value={{ heroVisible, setHeroVisible, heroRef, isOffDutyOpen, setIsOffDutyOpen, activeSection }}>
       {children}
     </PortfolioContext.Provider>
   )

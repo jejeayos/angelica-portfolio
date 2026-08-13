@@ -8,6 +8,7 @@ export type Project = {
   link?: string
 }
 
+
 const projects: Project[] = [
   {
     title: "HealthcareGPS AI",
@@ -15,6 +16,8 @@ const projects: Project[] = [
     tags: ["Vue", "Nuxt", "Pinia", "Nest.js", "Prisma", "Docker", "AWS S3"],
     year: "2026",
     category: "HealthTech",
+    image: "/images/Healthcaregps.png",
+    link: "https://medicarecopilot.ai/",
   },
   {
     title: "Infor Rhythm for Ecommerce",
@@ -22,7 +25,10 @@ const projects: Project[] = [
     tags: ["React", "Redux", "Spring Boot", "MarionetteJS", "BackboneJS", "Google Analytics"],
     year: "2025",
     category: "Enterprise SaaS",
+    image: "/images/RhythmForEcomm.png",
+    link: "https://www.infor.com/solutions/service-sales/ecommerce",
+
   },
 ]
 
-export default projects;
+export default projects
