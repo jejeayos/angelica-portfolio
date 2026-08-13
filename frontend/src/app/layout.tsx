@@ -17,10 +17,31 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Angelica Ayos",
-  description: "Software Engineer with 5+ years experience building accessible, performant web applications with React, TypeScript, and modern tooling.",
-};
+export const metadata = {
+  title: "Angelica Ayos — Portfolio",
+  description: "Full-stack developer with 5+ years building accessible, performant web applications. Bridging the gap between clean architecture and pixel-perfect interfaces.",
+  openGraph: {
+    title: "Angelica Ayos — Portfolio",
+    description: "Full-stack developer with 5+ years building accessible, performant web applications. Bridging the gap between clean architecture and pixel-perfect interfaces.",
+    url: "https://angelica-ayos-portfolio.vercel.app",
+    siteName: "Angelica Ayos",
+    images: [
+      {
+        url: "https://angelica-ayos-portfolio.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+      }
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Angelica Ayos — Portfolio",
+    description: "Full-stack developer with 5+ years building accessible, performant web applications. Bridging the gap between clean architecture and pixel-perfect interfaces.",
+    images: ["https://angelica-ayos-portfolio.vercel.app/og-image.png"],
+  }
+}
+
 
 export default function RootLayout({
   children,
